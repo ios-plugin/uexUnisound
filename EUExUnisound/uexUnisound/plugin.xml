@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<uexplugins>
+    <plugin name="uexUnisound">
+        
+        <method name="init"></method>
+        <method name="updateRecognizerSettings"></method>
+        <method name="start"></method>
+        <method name="stop"></method>
+        <method name="cancel"></method>
+        <method name="runTextUnderstand"></method>
+        <method name="speaking"></method>
+        <method name="cancelSpeaking"></method>
+        <method name="pauseSpeaking"></method>
+        <method name="resumeSpeaking"></method>
+        </plugin>
+</uexplugins>

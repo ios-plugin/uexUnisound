@@ -1,0 +1,353 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		42C669B71BAA5561000DBD37 /* EUExUnisound.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 42C669B61BAA5561000DBD37 /* EUExUnisound.h */; };
+		42C669B91BAA5561000DBD37 /* EUExUnisound.mm in Sources */ = {isa = PBXBuildFile; fileRef = 42C669B81BAA5561000DBD37 /* EUExUnisound.mm */; };
+		42C669E71BAA5C2A000DBD37 /* uexUnisoundKeys.m in Sources */ = {isa = PBXBuildFile; fileRef = 42C669E61BAA5C2A000DBD37 /* uexUnisoundKeys.m */; };
+		42D7B5751BAFDD6C00BFBC33 /* weed_libusc.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 42D7B5741BAFDD6C00BFBC33 /* weed_libusc.a */; settings = {ASSET_TAGS = (); }; };
+		42D7B57E1BAFE14A00BFBC33 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42D7B57D1BAFE14A00BFBC33 /* AVFoundation.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		42C669B11BAA5561000DBD37 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/$(PRODUCT_NAME)";
+			dstSubfolderSpec = 16;
+			files = (
+				42C669B71BAA5561000DBD37 /* EUExUnisound.h in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		42C669B31BAA5561000DBD37 /* libuexUnisound.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libuexUnisound.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		42C669B61BAA5561000DBD37 /* EUExUnisound.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EUExUnisound.h; sourceTree = "<group>"; };
+		42C669B81BAA5561000DBD37 /* EUExUnisound.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = EUExUnisound.mm; sourceTree = "<group>"; };
+		42C669CE1BAA5734000DBD37 /* EUExBase+Bundle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "EUExBase+Bundle.h"; sourceTree = "<group>"; };
+		42C669CF1BAA5734000DBD37 /* EUExBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EUExBase.h; sourceTree = "<group>"; };
+		42C669D01BAA5734000DBD37 /* EUExBaseDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EUExBaseDefine.h; sourceTree = "<group>"; };
+		42C669D11BAA5734000DBD37 /* EUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EUtility.h; sourceTree = "<group>"; };
+		42C669D21BAA5734000DBD37 /* WidgetOneDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WidgetOneDelegate.h; sourceTree = "<group>"; };
+		42C669D51BAA5766000DBD37 /* JSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSON.h; sourceTree = "<group>"; };
+		42C669D61BAA5766000DBD37 /* JSONParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONParser.h; sourceTree = "<group>"; };
+		42C669D71BAA5766000DBD37 /* MD5Digest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MD5Digest.h; sourceTree = "<group>"; };
+		42C669D81BAA5766000DBD37 /* NSObject+SBJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+SBJSON.h"; sourceTree = "<group>"; };
+		42C669D91BAA5766000DBD37 /* NSString+SBJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+SBJSON.h"; sourceTree = "<group>"; };
+		42C669DA1BAA5766000DBD37 /* SBJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJSON.h; sourceTree = "<group>"; };
+		42C669DB1BAA5766000DBD37 /* SBJsonBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonBase.h; sourceTree = "<group>"; };
+		42C669DC1BAA5766000DBD37 /* SBJsonParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonParser.h; sourceTree = "<group>"; };
+		42C669DD1BAA5766000DBD37 /* SBJsonWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonWriter.h; sourceTree = "<group>"; };
+		42C669E11BAA5AF2000DBD37 /* USCSpeechResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = USCSpeechResult.h; sourceTree = "<group>"; };
+		42C669E21BAA5AF2000DBD37 /* USCSpeechSynthesizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = USCSpeechSynthesizer.h; sourceTree = "<group>"; };
+		42C669E31BAA5AF2000DBD37 /* USCSpeechUnderstander.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = USCSpeechUnderstander.h; sourceTree = "<group>"; };
+		42C669E51BAA5C2A000DBD37 /* uexUnisoundKeys.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = uexUnisoundKeys.h; sourceTree = "<group>"; };
+		42C669E61BAA5C2A000DBD37 /* uexUnisoundKeys.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = uexUnisoundKeys.m; sourceTree = "<group>"; };
+		42C669EF1BAA68E3000DBD37 /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		42D7B5741BAFDD6C00BFBC33 /* weed_libusc.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = weed_libusc.a; sourceTree = "<group>"; };
+		42D7B57D1BAFE14A00BFBC33 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		42C669B01BAA5561000DBD37 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				42D7B57E1BAFE14A00BFBC33 /* AVFoundation.framework in Frameworks */,
+				42D7B5751BAFDD6C00BFBC33 /* weed_libusc.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		42C669AA1BAA5561000DBD37 = {
+			isa = PBXGroup;
+			children = (
+				42D7B57D1BAFE14A00BFBC33 /* AVFoundation.framework */,
+				42C669B51BAA5561000DBD37 /* EUExUnisound */,
+				42C669B41BAA5561000DBD37 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		42C669B41BAA5561000DBD37 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				42C669B31BAA5561000DBD37 /* libuexUnisound.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		42C669B51BAA5561000DBD37 /* EUExUnisound */ = {
+			isa = PBXGroup;
+			children = (
+				42C669D31BAA5739000DBD37 /* sourceCode */,
+				42C669CD1BAA5734000DBD37 /* engineHeader */,
+				42C669B61BAA5561000DBD37 /* EUExUnisound.h */,
+				42C669B81BAA5561000DBD37 /* EUExUnisound.mm */,
+			);
+			path = EUExUnisound;
+			sourceTree = "<group>";
+		};
+		42C669CD1BAA5734000DBD37 /* engineHeader */ = {
+			isa = PBXGroup;
+			children = (
+				42C669CE1BAA5734000DBD37 /* EUExBase+Bundle.h */,
+				42C669CF1BAA5734000DBD37 /* EUExBase.h */,
+				42C669D01BAA5734000DBD37 /* EUExBaseDefine.h */,
+				42C669D11BAA5734000DBD37 /* EUtility.h */,
+				42C669D21BAA5734000DBD37 /* WidgetOneDelegate.h */,
+			);
+			path = engineHeader;
+			sourceTree = "<group>";
+		};
+		42C669D31BAA5739000DBD37 /* sourceCode */ = {
+			isa = PBXGroup;
+			children = (
+				42C669DE1BAA5AF2000DBD37 /* lib */,
+				42C669D41BAA5766000DBD37 /* JSON */,
+				42C669E51BAA5C2A000DBD37 /* uexUnisoundKeys.h */,
+				42C669E61BAA5C2A000DBD37 /* uexUnisoundKeys.m */,
+				42C669EF1BAA68E3000DBD37 /* PrefixHeader.pch */,
+			);
+			path = sourceCode;
+			sourceTree = "<group>";
+		};
+		42C669D41BAA5766000DBD37 /* JSON */ = {
+			isa = PBXGroup;
+			children = (
+				42C669D51BAA5766000DBD37 /* JSON.h */,
+				42C669D61BAA5766000DBD37 /* JSONParser.h */,
+				42C669D71BAA5766000DBD37 /* MD5Digest.h */,
+				42C669D81BAA5766000DBD37 /* NSObject+SBJSON.h */,
+				42C669D91BAA5766000DBD37 /* NSString+SBJSON.h */,
+				42C669DA1BAA5766000DBD37 /* SBJSON.h */,
+				42C669DB1BAA5766000DBD37 /* SBJsonBase.h */,
+				42C669DC1BAA5766000DBD37 /* SBJsonParser.h */,
+				42C669DD1BAA5766000DBD37 /* SBJsonWriter.h */,
+			);
+			path = JSON;
+			sourceTree = "<group>";
+		};
+		42C669DE1BAA5AF2000DBD37 /* lib */ = {
+			isa = PBXGroup;
+			children = (
+				42D7B5741BAFDD6C00BFBC33 /* weed_libusc.a */,
+				42C669E11BAA5AF2000DBD37 /* USCSpeechResult.h */,
+				42C669E21BAA5AF2000DBD37 /* USCSpeechSynthesizer.h */,
+				42C669E31BAA5AF2000DBD37 /* USCSpeechUnderstander.h */,
+			);
+			path = lib;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		42C669B21BAA5561000DBD37 /* EUExUnisound */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 42C669C71BAA5561000DBD37 /* Build configuration list for PBXNativeTarget "EUExUnisound" */;
+			buildPhases = (
+				42C669AF1BAA5561000DBD37 /* Sources */,
+				42C669B01BAA5561000DBD37 /* Frameworks */,
+				42C669B11BAA5561000DBD37 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = EUExUnisound;
+			productName = EUExUnisound;
+			productReference = 42C669B31BAA5561000DBD37 /* libuexUnisound.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		42C669AB1BAA5561000DBD37 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0700;
+				ORGANIZATIONNAME = AppCan;
+				TargetAttributes = {
+					42C669B21BAA5561000DBD37 = {
+						CreatedOnToolsVersion = 6.4;
+					};
+				};
+			};
+			buildConfigurationList = 42C669AE1BAA5561000DBD37 /* Build configuration list for PBXProject "EUExUnisound" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 42C669AA1BAA5561000DBD37;
+			productRefGroup = 42C669B41BAA5561000DBD37 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				42C669B21BAA5561000DBD37 /* EUExUnisound */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		42C669AF1BAA5561000DBD37 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				42C669B91BAA5561000DBD37 /* EUExUnisound.mm in Sources */,
+				42C669E71BAA5C2A000DBD37 /* uexUnisoundKeys.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		42C669C51BAA5561000DBD37 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		42C669C61BAA5561000DBD37 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		42C669C81BAA5561000DBD37 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CONFIGURATION_BUILD_DIR = $SRCROOT/uexUnisound;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = $SRCROOT/EUExUnisound/sourceCode/PrefixHeader.pch;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/EUExUnisound/sourceCode/lib",
+				);
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_MODULE_NAME = uexUnisound;
+				PRODUCT_NAME = uexUnisound;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		42C669C91BAA5561000DBD37 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CONFIGURATION_BUILD_DIR = $SRCROOT/uexUnisound;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = $SRCROOT/EUExUnisound/sourceCode/PrefixHeader.pch;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/EUExUnisound/sourceCode/lib",
+				);
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_MODULE_NAME = uexUnisound;
+				PRODUCT_NAME = uexUnisound;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		42C669AE1BAA5561000DBD37 /* Build configuration list for PBXProject "EUExUnisound" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				42C669C51BAA5561000DBD37 /* Debug */,
+				42C669C61BAA5561000DBD37 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		42C669C71BAA5561000DBD37 /* Build configuration list for PBXNativeTarget "EUExUnisound" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				42C669C81BAA5561000DBD37 /* Debug */,
+				42C669C91BAA5561000DBD37 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 42C669AB1BAA5561000DBD37 /* Project object */;
+}
