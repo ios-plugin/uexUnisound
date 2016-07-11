@@ -10,7 +10,7 @@
 		42C669B71BAA5561000DBD37 /* EUExUnisound.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 42C669B61BAA5561000DBD37 /* EUExUnisound.h */; };
 		42C669B91BAA5561000DBD37 /* EUExUnisound.mm in Sources */ = {isa = PBXBuildFile; fileRef = 42C669B81BAA5561000DBD37 /* EUExUnisound.mm */; };
 		42C669E71BAA5C2A000DBD37 /* uexUnisoundKeys.m in Sources */ = {isa = PBXBuildFile; fileRef = 42C669E61BAA5C2A000DBD37 /* uexUnisoundKeys.m */; };
-		42D7B5751BAFDD6C00BFBC33 /* weed_libusc.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 42D7B5741BAFDD6C00BFBC33 /* weed_libusc.a */; settings = {ASSET_TAGS = (); }; };
+		42D7B5751BAFDD6C00BFBC33 /* weed_libusc.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 42D7B5741BAFDD6C00BFBC33 /* weed_libusc.a */; };
 		42D7B57E1BAFE14A00BFBC33 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42D7B57D1BAFE14A00BFBC33 /* AVFoundation.framework */; };
 /* End PBXBuildFile section */
 
@@ -247,7 +247,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -283,7 +283,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -296,7 +296,7 @@
 				CONFIGURATION_BUILD_DIR = $SRCROOT/uexUnisound;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = $SRCROOT/EUExUnisound/sourceCode/PrefixHeader.pch;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/EUExUnisound/sourceCode/lib",
@@ -314,7 +314,7 @@
 				CONFIGURATION_BUILD_DIR = $SRCROOT/uexUnisound;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = $SRCROOT/EUExUnisound/sourceCode/PrefixHeader.pch;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/EUExUnisound/sourceCode/lib",
