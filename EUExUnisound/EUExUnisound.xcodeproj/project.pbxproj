@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		42C669B71BAA5561000DBD37 /* EUExUnisound.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 42C669B61BAA5561000DBD37 /* EUExUnisound.h */; };
 		42C669B91BAA5561000DBD37 /* EUExUnisound.mm in Sources */ = {isa = PBXBuildFile; fileRef = 42C669B81BAA5561000DBD37 /* EUExUnisound.mm */; };
 		42C669E71BAA5C2A000DBD37 /* uexUnisoundKeys.m in Sources */ = {isa = PBXBuildFile; fileRef = 42C669E61BAA5C2A000DBD37 /* uexUnisoundKeys.m */; };
 		42D7B5751BAFDD6C00BFBC33 /* weed_libusc.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 42D7B5741BAFDD6C00BFBC33 /* weed_libusc.a */; };
@@ -18,10 +17,9 @@
 		42C669B11BAA5561000DBD37 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
-			dstPath = "include/$(PRODUCT_NAME)";
+			dstPath = "";
 			dstSubfolderSpec = 16;
 			files = (
-				42C669B71BAA5561000DBD37 /* EUExUnisound.h in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
