@@ -369,8 +369,6 @@
 
 /**
  *  音量大小回调
- *
- *  @param volume 音量大小
  */
 - (void)onUpdateVolume:(int)volume{
     if(!self.isLaunched){
@@ -383,8 +381,6 @@
 
 /**
  *  语义返回结果回调
- *
- *  @param result 结果
  */
 - (void)onUnderstanderResult:(USCSpeechResult *)result{
     if(!self.isLaunched){
@@ -394,12 +390,10 @@
     [dict setValue:result.requestText forKey:@"requestText"];
     [dict setValue:result.responseText forKey:@"responsText"];
     [dict setValue:result.stringResult forKey:@"stringResult"];
-    [self.webViewEngine callbackWithFunctionKeyPath:cbFunc(@"onUpdateVolume") arguments:ACArgsPack(dict.ac_JSONFragment)];
+    [self.webViewEngine callbackWithFunctionKeyPath:cbFunc(@"onReceiveUnderstanderResult") arguments:ACArgsPack(dict.ac_JSONFragment)];
 }
 /**
  *  整个过程结束回调
- *
- *  @param error error = nil 正常结束
  */
 - (void)onEnd:(NSError *)error{
     if(!self.isLaunched){
