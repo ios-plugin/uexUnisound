@@ -7,12 +7,9 @@
 //
 
 #import "EUExUnisound.h"
-#import "JSON.h"
-#import "EUtility.h"
+
 
 #import "uexUnisoundKeys.h"
-
-
 #import "USCSpeechUnderstander.h"
 #import "USCSpeechResult.h"
 #import "USCSpeechSynthesizer.h"
@@ -36,29 +33,24 @@
 #pragma mark - Required Methods
 
 
--(instancetype)initWithBrwView:(EBrowserView *)eInBrwView{
-    self=[super initWithBrwView:eInBrwView];
-    if(self){
-        self.isLaunched=NO;
-        self.isInitialized=NO;
-        
+- (instancetype)initWithWebViewEngine:(id<AppCanWebViewEngineObject>)engine{
+    self = [super initWithWebViewEngine:engine];
+    if (self) {
+        _isLaunched = NO;
+        _isInitialized = NO;
     }
     return self;
 }
 
 
--(void)clean{
-    if (self.speechUnderstander) {
-        self.speechUnderstander =nil;
-    }
-    
-    if(self.synthesizer){
-        self.synthesizer =nil;
-    }
 
+
+- (void)clean{
+    _speechUnderstander = nil;
+    _synthesizer = nil;
 }
 
--(void)dealloc{
+- (void)dealloc{
     [self clean];
 }
 
@@ -79,56 +71,57 @@
  *
  *
  */
--(void)init:(NSMutableArray *)inArguments{
-    if([inArguments count] < 1){
+- (void)init:(NSMutableArray *)inArguments{
+
+    ACArgsUnpack(NSDictionary *info) = inArguments;
+    NSString *appKey = stringArg(info[cUexUnisoundKey_appKey]);
+    NSString *secret = stringArg(info[cUexUnisoundKey_secret]);
+    
+    if (!appKey || !secret) {
         return;
     }
-    id info = [inArguments[0] JSONValue];
-    if(!info || ![info isKindOfClass:[NSDictionary class]]||![info objectForKey:cUexUnisoundKey_appKey]||![info objectForKey:cUexUnisoundKey_secret]){
-        return;
-    }
-    USCSpeechUnderstander *speechUnderstander = [[USCSpeechUnderstander alloc]initWithContext:nil appKey:info[cUexUnisoundKey_appKey] secret:info[cUexUnisoundKey_secret]];
+    
+    
+    USCSpeechUnderstander *speechUnderstander = [[USCSpeechUnderstander alloc]initWithContext:nil appKey:appKey secret:secret];
     self.speechUnderstander = speechUnderstander;
     self.speechUnderstander.delegate = self;
     
     USCSpeechSynthesizer *synthesizer = [[USCSpeechSynthesizer alloc]initWithAppkey:info[cUexUnisoundKey_appKey]];
-    self.synthesizer =synthesizer;
+    self.synthesizer = synthesizer;
     self.synthesizer.delegate = self;
-    self.isInitialized=YES;
+    self.isInitialized = YES;
     if(!self.isLaunched){
-        //如果没调用过start 他喵的speaking竟然没声音= =!
+        //如果没调用过start speaking不会有声音= =!
         [self.speechUnderstander start];
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(200 * NSEC_PER_MSEC)), dispatch_get_main_queue(), ^{
             [self.speechUnderstander cancel];
         });
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(400 * NSEC_PER_MSEC)), dispatch_get_main_queue(), ^{
-            self.isLaunched=YES;
+            self.isLaunched = YES;
         });
     }
+    
 
 }
 
 
 
--(void)updateRecognizerSettings:(NSMutableArray *)inArguments{
-    if([inArguments count] < 1||!self.isInitialized){
-        return;
-    }
-    id info = [inArguments[0] JSONValue];
-    if(!info || ![info isKindOfClass:[NSDictionary class]]){
-        return;
-    }
+- (void)updateRecognizerSettings:(NSMutableArray *)inArguments{
+
+    ACArgsUnpack(NSDictionary *info) = inArguments;
     
-    if([info objectForKey:cUexUnisoundKey_frontTime]||[info objectForKey:cUexUnisoundKey_backTime]){
-        int frontTime,backTime;
-        frontTime=info[cUexUnisoundKey_frontTime]?[info[cUexUnisoundKey_frontTime] intValue]:3000;
-        backTime=info[cUexUnisoundKey_backTime]?[info[cUexUnisoundKey_backTime] intValue]:1000;
+    NSNumber *frontNum = numberArg(info[cUexUnisoundKey_frontTime]);
+    NSNumber *backNum = numberArg(info[cUexUnisoundKey_backTime]);
+    if (frontNum || backNum) {
+        int frontTime = frontNum ? frontNum.intValue : 3000;
+        int backTime = backNum ? backNum.intValue : 1000;
         [self.speechUnderstander setVadFrontTimeout:frontTime BackTimeout:backTime];
     }
-
-    if([info objectForKey:cUexUnisoundKey_rate]){
+    
+    NSNumber *rateNum = numberArg(info[cUexUnisoundKey_rate]);
+    if (rateNum) {
         USCBankWidth bandWidth = RATE_16K;
-        switch ([info[cUexUnisoundKey_rate] integerValue]) {
+        switch (rateNum.integerValue) {
             case 1:
                 bandWidth = BANDWIDTH_AUTO;
                 break;
@@ -142,10 +135,12 @@
         [self.speechUnderstander setBandwidth:bandWidth];
     }
     
-    if([info objectForKey:cUexUnisoundKey_language]){
+    NSNumber *languageNum = numberArg(info[cUexUnisoundKey_language]);
+
+    if(languageNum){
         
         NSString * language = @"chinese";
-        switch ([info[cUexUnisoundKey_language] integerValue]) {
+        switch (languageNum.integerValue) {
             case 2:
                 language = @"english";
                 break;
@@ -160,9 +155,11 @@
 
     }
     
-    if([info objectForKey:cUexUnisoundKey_engine]){
+    NSNumber *engineNum = numberArg(info[cUexUnisoundKey_engine]);
+    
+    if(engineNum){
         NSString * engine = @"general";
-        switch ([info[cUexUnisoundKey_engine] integerValue]) {
+        switch (engineNum.integerValue) {
             case 2:
                 engine = @"poi";
                 break;
@@ -173,7 +170,7 @@
                 engine = @"movietv";
                 break;
             case 5:
-                engine =@"medical";
+                engine = @"medical";
                 break;
                 
             default:
@@ -182,14 +179,14 @@
         [self.speechUnderstander setEngine:engine];
 
     }
-    
-    if([info objectForKey:cUexUnisoundKey_recognizationTimeout]){
-        float recognizationTimeout =[[info objectForKey:cUexUnisoundKey_recognizationTimeout] floatValue];
+    NSNumber *recognizeNum = numberArg(info[cUexUnisoundKey_recognizationTimeout]);
+    if (recognizeNum) {
+        float recognizationTimeout =[recognizeNum floatValue];
         
         [self.speechUnderstander setRecognizationTimeout:recognizationTimeout>0?recognizationTimeout:30];
     }
-    if([info objectForKey:cUexUnisoundKey_needUnderstander]){
-        
+    
+    if(info[cUexUnisoundKey_needUnderstander]){
         [self.speechUnderstander setNluEnable:[info[cUexUnisoundKey_needUnderstander] boolValue]];
     }
     
@@ -205,9 +202,9 @@
  *  @param inArguments 无
  */
 
--(void)start:(NSMutableArray *)inArguments{
+- (void)start:(NSMutableArray *)inArguments{
     if(self.isInitialized){
-        self.isLaunched=YES;
+        self.isLaunched = YES;
     }
     
     [self.speechUnderstander start];
@@ -218,7 +215,7 @@
  *
  *  @param inArguments 无
  */
--(void)stop:(NSMutableArray *)array{
+- (void)stop:(NSMutableArray *)array{
     
     [self.speechUnderstander stop];
     
@@ -230,37 +227,13 @@
  *  @discussion 试做放弃本次语音识别任务，不再产生回调
  *  @param inArguments 无
  */
--(void)cancel:(NSMutableArray *)array{
+- (void)cancel:(NSMutableArray *)array{
     
     [self.speechUnderstander cancel];
     
 }
 
-/**
- *  进行文件语音识别
- *
- *
- *  @param 
- *  var inArguments = {
- *      filePath:,//语音文件路径
- *  }
- *
- */
 
-//
-/*
--(void)recognizeFile:(NSMutableArray *)inArguments{
-    if([inArguments count] < 1){
-        return;
-    }
-    id info = [inArguments[0] JSONValue];
-    if(!info || ![info isKindOfClass:[NSDictionary class]]||![info objectForKey:cUexUnisoundKey_filePath]){
-        return;
-    }
-    //坑爹啊 这个方法实际上不存在！！
-    [self.speechUnderstander recognizeAudioFile:[self absPath:info[cUexUnisoundKey_filePath]]];
-}
-*/
 /**
  *  进行文本语义理解
  *
@@ -269,15 +242,14 @@
  *      text:,//需要语义理解的文本
  *  }
  */
--(void)runTextUnderstand:(NSMutableArray *)inArguments{
-    if([inArguments count] < 1){
-        return;
+- (void)runTextUnderstand:(NSMutableArray *)inArguments{
+
+    ACArgsUnpack(NSDictionary *info) = inArguments;
+    NSString *text = stringArg(info[cUexUnisoundKey_text]);
+    if (text) {
+        [self.speechUnderstander textUnderstander:text];
     }
-    id info = [inArguments[0] JSONValue];
-    if(!info || ![info isKindOfClass:[NSDictionary class]]||![info objectForKey:cUexUnisoundKey_text]){
-        return;
-    }
-    [self.speechUnderstander textUnderstander:info[cUexUnisoundKey_text]];
+
 }
 
 /**
@@ -288,19 +260,12 @@
  *      text:,//需要语音合成的文本
  *  }
  */
--(void)speaking:(NSMutableArray *)inArguments{
-    if([inArguments count] < 1){
-        return;
+- (void)speaking:(NSMutableArray *)inArguments{
+    ACArgsUnpack(NSDictionary *info) = inArguments;
+    NSString *text = stringArg(info[cUexUnisoundKey_text]);
+    if (text) {
+        [self.synthesizer speaking:text];
     }
-    id info = [inArguments[0] JSONValue];
-    if(!info || ![info isKindOfClass:[NSDictionary class]]||![info objectForKey:cUexUnisoundKey_text]){
-        return;
-    }
-    
-        
-
-    [self.synthesizer speaking:info[cUexUnisoundKey_text]];
-
 }
 
 
@@ -309,7 +274,7 @@
  *
  *  @param 无
  */
--(void)cancelSpeaking:(NSMutableArray *)inArguments{
+- (void)cancelSpeaking:(NSMutableArray *)inArguments{
     [self.synthesizer cancelSpeaking];
 }
 
@@ -319,7 +284,7 @@
  *  @discussion 仅暂停语音播放线程，合成线程会继续进行
  *  @param 无
  */
--(void)pauseSpeaking:(NSMutableArray *)inArguments{
+- (void)pauseSpeaking:(NSMutableArray *)inArguments{
     [self.synthesizer pauseSpeaking];
 }
 /**
@@ -327,7 +292,7 @@
  *
  *  @param 无
  */
--(void)resumeSpeaking:(NSMutableArray *)inArguments{
+- (void)resumeSpeaking:(NSMutableArray *)inArguments{
     [self.synthesizer resumeSpeaking];
 }
 
@@ -345,7 +310,8 @@
     if(!self.isLaunched){
         return;
     }
-    [self callBackJsonWithName:@"onSpeechStart" object:nil];
+    [self.webViewEngine callbackWithFunctionKeyPath:cbFunc(@"onSpeechStart") arguments:nil];
+
 }
 
 /**
@@ -357,7 +323,7 @@
     if(!self.isLaunched){
         return;
     }
-    [self callBackJsonWithName:@"onRecognizerStart" object:nil];
+    [self.webViewEngine callbackWithFunctionKeyPath:cbFunc(@"onRecognizerStart") arguments:nil];
 }
 
 /**
@@ -382,7 +348,7 @@
     if(!self.isLaunched){
         return;
     }
-    [self callBackJsonWithName:@"onVADTimeout" object:nil];
+    [self.webViewEngine callbackWithFunctionKeyPath:cbFunc(@"onVADTimeout") arguments:nil];
 }
 
 /**
@@ -398,13 +364,11 @@
     NSMutableDictionary *dict =[NSMutableDictionary dictionary];
     [dict setValue:result forKey:cUexUnisoundKey_result];
     [dict setValue:@(isLast) forKey:cUexUnisoundKey_isLast];
-    [self callBackJsonWithName:@"onReceiveRecognizerResult" object:dict];
+    [self.webViewEngine callbackWithFunctionKeyPath:cbFunc(@"onReceiveRecognizerResult") arguments:ACArgsPack(dict.ac_JSONFragment)];
 }
 
 /**
  *  音量大小回调
- *
- *  @param volume 音量大小
  */
 - (void)onUpdateVolume:(int)volume{
     if(!self.isLaunched){
@@ -412,13 +376,11 @@
     }
      NSMutableDictionary *dict =[NSMutableDictionary dictionary];
     [dict setValue:@(volume) forKey:@"volume"];
-    [self callBackJsonWithName:@"onUpdateVolume" object:dict];
+    [self.webViewEngine callbackWithFunctionKeyPath:cbFunc(@"onUpdateVolume") arguments:ACArgsPack(dict.ac_JSONFragment)];
 }
 
 /**
  *  语义返回结果回调
- *
- *  @param result 结果
  */
 - (void)onUnderstanderResult:(USCSpeechResult *)result{
     if(!self.isLaunched){
@@ -428,12 +390,10 @@
     [dict setValue:result.requestText forKey:@"requestText"];
     [dict setValue:result.responseText forKey:@"responsText"];
     [dict setValue:result.stringResult forKey:@"stringResult"];
-    [self callBackJsonWithName:@"onUpdateVolume" object:dict];
+    [self.webViewEngine callbackWithFunctionKeyPath:cbFunc(@"onReceiveUnderstanderResult") arguments:ACArgsPack(dict.ac_JSONFragment)];
 }
 /**
  *  整个过程结束回调
- *
- *  @param error error = nil 正常结束
  */
 - (void)onEnd:(NSError *)error{
     if(!self.isLaunched){
@@ -445,7 +405,7 @@
     }else{
         [dict setValue:@(error.code) forKey:cUexUnisoundKey_result];
     }
-    [self callBackJsonWithName:@"onEnd" object:dict];
+    [self.webViewEngine callbackWithFunctionKeyPath:cbFunc(@"onEnd") arguments:ACArgsPack(dict.ac_JSONFragment)];
 }
 
 #pragma mark - USCSpeechSynthesizer Delegate
@@ -463,28 +423,28 @@
  */
 - (void)synthesizerSpeechStartSpeaking{
     //NSLog(@"开始播放");
-    [self callBackJsonWithName:@"onSpeakingStart" object:nil];
+    [self.webViewEngine callbackWithFunctionKeyPath:cbFunc(@"onSpeakingStart") arguments:nil];
 }
 
 /**
  *  合成取消回调,包括取消合成和取消播放
  */
 - (void)synthesizerDidCanceled{
-    [self callBackJsonWithName:@"onSpeakingCancel" object:nil];
+    [self.webViewEngine callbackWithFunctionKeyPath:cbFunc(@"onSpeakingCancel") arguments:nil];
 }
 
 /**
  *  朗读暂停回调
  */
 - (void)synthesizerSpeechDidPaused{
-    [self callBackJsonWithName:@"cbPauseSpeaking" object:nil];
+    [self.webViewEngine callbackWithFunctionKeyPath:cbFunc(@"cbPauseSpeaking") arguments:nil];
 }
 
 /**
  *  朗读恢复回调
  */
 - (void)synthesizerSpeechDidResumed{
-    [self callBackJsonWithName:@"cbResumeSpeaking" object:nil];
+    [self.webViewEngine callbackWithFunctionKeyPath:cbFunc(@"cbResumeSpeaking") arguments:nil];
 }
 
 /**
@@ -492,7 +452,7 @@
  */
 - (void)synthesizerSpeechDidFinished{
     //NSLog(@"播放完成");
-    [self callBackJsonWithName:@"onSpeakingFinish" object:nil];
+    [self.webViewEngine callbackWithFunctionKeyPath:cbFunc(@"onSpeakingFinish") arguments:nil];
 }
 
 /**
@@ -504,7 +464,7 @@
     NSMutableDictionary *dict =[NSMutableDictionary dictionary];
     [dict setValue:[error localizedDescription] forKey:@"errorStr"];
     [dict setValue:@(error.code) forKey:@"errorCode"];
-    [self callBackJsonWithName:@"onSpeakingErrorOccurr" object:dict];
+    [self.webViewEngine callbackWithFunctionKeyPath:cbFunc(@"onSpeakingErrorOccurr") arguments:ACArgsPack(dict.ac_JSONFragment)];
 }
 
 /*
@@ -518,12 +478,10 @@
 
 #pragma mark - JSON Callback
 
--(void)callBackJsonWithName:(NSString *)name object:(id)obj{
-    static NSString * pluginName = @"uexUnisound";
-    NSString *result=[obj JSONFragment];
-    NSString *jsStr = [NSString stringWithFormat:@"if(%@.%@ != null){%@.%@('%@');}",pluginName,name,pluginName,name,result];
-    
-    [EUtility brwView:meBrwView evaluateScript:jsStr];
-    
+static inline NSString * cbFunc(NSString *funcName){
+    return [@"uexUnisound." stringByAppendingString:funcName];
 }
+
+
+
 @end

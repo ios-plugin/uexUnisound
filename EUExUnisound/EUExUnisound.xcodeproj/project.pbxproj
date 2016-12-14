@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		42C669B91BAA5561000DBD37 /* EUExUnisound.mm in Sources */ = {isa = PBXBuildFile; fileRef = 42C669B81BAA5561000DBD37 /* EUExUnisound.mm */; };
 		42C669E71BAA5C2A000DBD37 /* uexUnisoundKeys.m in Sources */ = {isa = PBXBuildFile; fileRef = 42C669E61BAA5C2A000DBD37 /* uexUnisoundKeys.m */; };
+		42C7547C1D333D5500977E46 /* AppCanKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42C7547B1D333D5500977E46 /* AppCanKit.framework */; };
 		42D7B5751BAFDD6C00BFBC33 /* weed_libusc.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 42D7B5741BAFDD6C00BFBC33 /* weed_libusc.a */; };
 		42D7B57E1BAFE14A00BFBC33 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42D7B57D1BAFE14A00BFBC33 /* AVFoundation.framework */; };
 /* End PBXBuildFile section */
@@ -29,26 +30,13 @@
 		42C669B31BAA5561000DBD37 /* libuexUnisound.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libuexUnisound.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		42C669B61BAA5561000DBD37 /* EUExUnisound.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EUExUnisound.h; sourceTree = "<group>"; };
 		42C669B81BAA5561000DBD37 /* EUExUnisound.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = EUExUnisound.mm; sourceTree = "<group>"; };
-		42C669CE1BAA5734000DBD37 /* EUExBase+Bundle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "EUExBase+Bundle.h"; sourceTree = "<group>"; };
-		42C669CF1BAA5734000DBD37 /* EUExBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EUExBase.h; sourceTree = "<group>"; };
-		42C669D01BAA5734000DBD37 /* EUExBaseDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EUExBaseDefine.h; sourceTree = "<group>"; };
-		42C669D11BAA5734000DBD37 /* EUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EUtility.h; sourceTree = "<group>"; };
-		42C669D21BAA5734000DBD37 /* WidgetOneDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WidgetOneDelegate.h; sourceTree = "<group>"; };
-		42C669D51BAA5766000DBD37 /* JSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSON.h; sourceTree = "<group>"; };
-		42C669D61BAA5766000DBD37 /* JSONParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONParser.h; sourceTree = "<group>"; };
-		42C669D71BAA5766000DBD37 /* MD5Digest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MD5Digest.h; sourceTree = "<group>"; };
-		42C669D81BAA5766000DBD37 /* NSObject+SBJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+SBJSON.h"; sourceTree = "<group>"; };
-		42C669D91BAA5766000DBD37 /* NSString+SBJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+SBJSON.h"; sourceTree = "<group>"; };
-		42C669DA1BAA5766000DBD37 /* SBJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJSON.h; sourceTree = "<group>"; };
-		42C669DB1BAA5766000DBD37 /* SBJsonBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonBase.h; sourceTree = "<group>"; };
-		42C669DC1BAA5766000DBD37 /* SBJsonParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonParser.h; sourceTree = "<group>"; };
-		42C669DD1BAA5766000DBD37 /* SBJsonWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonWriter.h; sourceTree = "<group>"; };
 		42C669E11BAA5AF2000DBD37 /* USCSpeechResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = USCSpeechResult.h; sourceTree = "<group>"; };
 		42C669E21BAA5AF2000DBD37 /* USCSpeechSynthesizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = USCSpeechSynthesizer.h; sourceTree = "<group>"; };
 		42C669E31BAA5AF2000DBD37 /* USCSpeechUnderstander.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = USCSpeechUnderstander.h; sourceTree = "<group>"; };
 		42C669E51BAA5C2A000DBD37 /* uexUnisoundKeys.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = uexUnisoundKeys.h; sourceTree = "<group>"; };
 		42C669E61BAA5C2A000DBD37 /* uexUnisoundKeys.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = uexUnisoundKeys.m; sourceTree = "<group>"; };
 		42C669EF1BAA68E3000DBD37 /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		42C7547B1D333D5500977E46 /* AppCanKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AppCanKit.framework; sourceTree = "<group>"; };
 		42D7B5741BAFDD6C00BFBC33 /* weed_libusc.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = weed_libusc.a; sourceTree = "<group>"; };
 		42D7B57D1BAFE14A00BFBC33 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
@@ -59,6 +47,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				42D7B57E1BAFE14A00BFBC33 /* AVFoundation.framework in Frameworks */,
+				42C7547C1D333D5500977E46 /* AppCanKit.framework in Frameworks */,
 				42D7B5751BAFDD6C00BFBC33 /* weed_libusc.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -87,51 +76,22 @@
 			isa = PBXGroup;
 			children = (
 				42C669D31BAA5739000DBD37 /* sourceCode */,
-				42C669CD1BAA5734000DBD37 /* engineHeader */,
 				42C669B61BAA5561000DBD37 /* EUExUnisound.h */,
 				42C669B81BAA5561000DBD37 /* EUExUnisound.mm */,
 			);
 			path = EUExUnisound;
 			sourceTree = "<group>";
 		};
-		42C669CD1BAA5734000DBD37 /* engineHeader */ = {
-			isa = PBXGroup;
-			children = (
-				42C669CE1BAA5734000DBD37 /* EUExBase+Bundle.h */,
-				42C669CF1BAA5734000DBD37 /* EUExBase.h */,
-				42C669D01BAA5734000DBD37 /* EUExBaseDefine.h */,
-				42C669D11BAA5734000DBD37 /* EUtility.h */,
-				42C669D21BAA5734000DBD37 /* WidgetOneDelegate.h */,
-			);
-			path = engineHeader;
-			sourceTree = "<group>";
-		};
 		42C669D31BAA5739000DBD37 /* sourceCode */ = {
 			isa = PBXGroup;
 			children = (
+				42C7547B1D333D5500977E46 /* AppCanKit.framework */,
 				42C669DE1BAA5AF2000DBD37 /* lib */,
-				42C669D41BAA5766000DBD37 /* JSON */,
 				42C669E51BAA5C2A000DBD37 /* uexUnisoundKeys.h */,
 				42C669E61BAA5C2A000DBD37 /* uexUnisoundKeys.m */,
 				42C669EF1BAA68E3000DBD37 /* PrefixHeader.pch */,
 			);
 			path = sourceCode;
-			sourceTree = "<group>";
-		};
-		42C669D41BAA5766000DBD37 /* JSON */ = {
-			isa = PBXGroup;
-			children = (
-				42C669D51BAA5766000DBD37 /* JSON.h */,
-				42C669D61BAA5766000DBD37 /* JSONParser.h */,
-				42C669D71BAA5766000DBD37 /* MD5Digest.h */,
-				42C669D81BAA5766000DBD37 /* NSObject+SBJSON.h */,
-				42C669D91BAA5766000DBD37 /* NSString+SBJSON.h */,
-				42C669DA1BAA5766000DBD37 /* SBJSON.h */,
-				42C669DB1BAA5766000DBD37 /* SBJsonBase.h */,
-				42C669DC1BAA5766000DBD37 /* SBJsonParser.h */,
-				42C669DD1BAA5766000DBD37 /* SBJsonWriter.h */,
-			);
-			path = JSON;
 			sourceTree = "<group>";
 		};
 		42C669DE1BAA5AF2000DBD37 /* lib */ = {
@@ -292,6 +252,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CONFIGURATION_BUILD_DIR = $SRCROOT/uexUnisound;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/EUExUnisound/sourceCode",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = $SRCROOT/EUExUnisound/sourceCode/PrefixHeader.pch;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
@@ -310,6 +274,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CONFIGURATION_BUILD_DIR = $SRCROOT/uexUnisound;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/EUExUnisound/sourceCode",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = $SRCROOT/EUExUnisound/sourceCode/PrefixHeader.pch;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
